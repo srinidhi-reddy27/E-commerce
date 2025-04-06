@@ -1,0 +1,157 @@
+/* src/components/ReviewAccordion.css */
+
+/* --- Main Accordion Container --- */
+.review-accordion-enhanced {
+    margin-top: 2.5rem;
+    border: 1px solid var(--border-color, #e0e0e0); /* Use CSS variable */
+    border-radius: var(--border-radius, 8px);
+    overflow: hidden; /* Clip children to rounded corners */
+    background-color: var(--bg-color, #ffffff);
+    box-shadow: var(--box-shadow-sm, 0 1px 3px rgba(0, 0, 0, 0.08)); /* Subtle shadow */
+  }
+  
+  /* --- Accordion Title Bar --- */
+  .reviews-main-title {
+    padding: 1rem 1.5rem;
+    margin: 0;
+    background-color: var(--light-color, #f8f9fa);
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--dark-color, #333);
+    border-bottom: 1px solid var(--border-color, #e0e0e0);
+  }
+  
+  /* --- "No Reviews" Message --- */
+  .no-reviews {
+      padding: 2rem 1.5rem; /* More padding */
+      text-align: center;
+      color: var(--text-muted, #777);
+      font-style: italic;
+      background-color: var(--light-color, #f8f9fa); /* Match title background */
+      font-size: 1.05rem; /* Slightly larger */
+      border-radius: var(--border-radius, 8px); /* Can be standalone */
+      margin-top: 2.5rem; /* Keep spacing consistent */
+  }
+  
+  /* --- Individual Accordion Item --- */
+  .accordion-item-enhanced {
+    border-bottom: 1px solid #eef0f2; /* Subtle separator */
+  }
+  .accordion-item-enhanced:last-child {
+    border-bottom: none;
+  }
+  
+  /* --- Accordion Title (Button) Styling --- */
+  .accordion-title-enhanced {
+    background-color: var(--bg-color, #ffffff);
+    color: var(--text-color, #444);
+    cursor: pointer;
+    padding: 1rem 1.5rem;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none; /* Remove default outline */
+    font-size: 1rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  /* Add focus style for accessibility */
+  .accordion-title-enhanced:focus-visible {
+      outline: 2px solid var(--primary-color, #007bff);
+      outline-offset: 2px;
+       z-index: 1; /* Ensure outline is visible */
+       position: relative;
+  }
+  
+  
+  .accordion-title-enhanced:hover {
+    background-color: var(--light-color, #f8f9fa);
+    color: var(--primary-color, #007bff);
+  }
+  .accordion-title-enhanced.active {
+    background-color: #f1f3f5; /* Use specific light grey */
+    color: var(--dark-color, #222);
+    font-weight: 600;
+  }
+  
+  
+  /* --- Review Summary (User + Stars) --- */
+  .review-summary {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem; /* Slightly more space */
+      align-items: flex-start;
+  }
+  
+  .review-user {
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: var(--text-muted, #555);
+      line-height: 1.3; /* Ensure good spacing */
+  }
+  .accordion-title-enhanced.active .review-user {
+      color: var(--dark-color, #333); /* Darken when active */
+  }
+  
+  /* --- Star Rating Styling --- */
+  .star-rating {
+    font-size: 1.15rem; /* Adjust star size */
+    line-height: 1;
+  }
+  .star {
+     margin-right: 1px; /* Small space between stars */
+  }
+  .star.filled {
+    color: var(--warning-color, #ffc107); /* Gold/Yellow color */
+  }
+  .star.empty {
+    color: #bdc3c7; /* Grey */
+  }
+  
+  /* --- Accordion Icon (+/-) --- */
+  .accordion-icon-enhanced {
+    font-size: 1.5rem;
+    font-weight: 300; /* Thinner icon */
+    color: #888;
+    transition: transform 0.3s ease;
+  }
+  .accordion-title-enhanced.active .accordion-icon-enhanced {
+    transform: rotate(180deg);
+    color: var(--dark-color, #555);
+  }
+  
+  /* --- Accordion Content Styling --- */
+  .accordion-content-enhanced {
+    padding: 0 1.5rem;
+    background-color: var(--bg-color, #ffffff);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), /* Smooth ease-out */
+                padding 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.3s ease-out;
+    opacity: 0;
+    /* Optional separator */
+     border-top: 1px dashed var(--border-color, #e0e0e0);
+  }
+  .accordion-content-enhanced.open {
+    max-height: 300px; /* Adjust as needed */
+    padding: 1.5rem;
+    opacity: 1;
+  }
+  
+  .review-comment {
+    margin: 0;
+    line-height: 1.7;
+    color: var(--text-muted, #555);
+    font-size: 0.95rem;
+  }
+  
+  /* --- Optional Review Date Styling --- */
+  .review-date {
+      font-size: 0.85rem;
+      color: #999;
+      margin-top: 0.8rem;
+      text-align: right;
+  }

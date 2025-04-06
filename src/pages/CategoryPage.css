@@ -1,0 +1,168 @@
+/* src/pages/CategoryPage.css */
+
+.category-page-enhanced {
+    display: flex;
+    flex-direction: column; /* Mobile first: stack layout */
+    gap: 1.5rem;
+    max-width: 1300px; /* Slightly wider max-width */
+    margin: 2rem auto;
+    padding: 1rem;
+  }
+  
+  /* Sidebar Styles */
+  .category-sidebar-enhanced {
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    /* On larger screens, it will have a fixed width set below */
+    flex-shrink: 0; /* Prevent shrinking */
+  }
+  
+  .sidebar-title {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #333;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .sidebar-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .sidebar-list li {
+    margin-bottom: 0.2rem; /* Reduce space between items */
+  }
+  
+  .sidebar-link {
+    display: block; /* Make link take full width */
+    padding: 0.7rem 1rem; /* Consistent padding */
+    text-decoration: none;
+    color: #555;
+    font-size: 0.95rem;
+    border-radius: 5px;
+    transition: background-color 0.2s ease, color 0.2s ease, padding-left 0.2s ease;
+    font-weight: 500;
+    border-left: 3px solid transparent; /* Placeholder for active indicator */
+  }
+  
+  .sidebar-link:hover {
+    background-color: #f0f5ff; /* Light blue background on hover */
+    color: #0056b3; /* Darker blue text on hover */
+    padding-left: 1.2rem; /* Indent slightly on hover */
+  }
+  
+  .sidebar-link.active-category {
+    background-color: #e6f0ff; /* Slightly darker blue background for active */
+    color: #004085; /* Darkest blue for active text */
+    font-weight: 600; /* Bold active link */
+    border-left-color: #0056b3; /* Show active indicator border */
+  }
+  
+  
+  /* Main Product Grid Styles */
+  .product-grid-container-enhanced {
+    flex-grow: 1; /* Takes remaining space */
+     min-width: 0; /* Prevents flexbox overflow issues */
+  }
+  
+  .category-main-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #333;
+    margin-top: 0; /* Align title better if sidebar stacks above */
+    margin-bottom: 1.8rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #eee;
+  }
+  
+  .product-grid-enhanced {
+    display: grid;
+    /* Responsive grid: adjusts columns based on available width */
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); /* Base column size */
+    gap: 1.5rem; /* Gap between grid items */
+  }
+  
+  /* Ensure enhanced product cards display correctly */
+  .product-grid-enhanced .product-card-enhanced {
+      /* Usually ProductCard handles its own margins/styles well */
+      /* Add specific overrides here only if necessary */
+  }
+  
+  /* "No Products Found" Styling */
+  .category-no-products {
+    background-color: #fff;
+    padding: 3rem 2rem;
+    border-radius: 8px;
+    text-align: center;
+    color: #777;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+  
+  .category-no-products p:first-child {
+      font-size: 2rem; /* Larger emoji */
+      margin-bottom: 0.5rem;
+  }
+  .category-no-products p:nth-child(2) {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
+  }
+  
+  /* Use shared button styles if defined globally, or redefine here */
+  .category-no-products .button {
+      /* Assuming .button and .secondary-button exist */
+  }
+  
+  /* Responsive adjustments */
+  @media (min-width: 768px) {
+    .category-page-enhanced {
+      flex-direction: row; /* Side-by-side layout on tablets and up */
+      padding: 1.5rem; /* Adjust padding */
+       gap: 2rem; /* Wider gap between sidebar and grid */
+    }
+  
+    .category-sidebar-enhanced {
+      flex-basis: 250px; /* Fixed width for sidebar */
+      height: fit-content; /* Prevent sidebar from stretching vertically */
+       position: sticky; /* Make sidebar sticky */
+       top: 90px; /* Adjust based on header height + desired space */
+       /* Add overflow-y: auto; max-height: calc(100vh - 120px); if list is very long */
+    }
+  
+    .category-main-title {
+       margin-top: 0; /* Reset margin */
+     }
+  
+     .product-grid-enhanced {
+       /* Adjust minmax if needed for larger screens */
+        grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+     }
+  
+  }
+  
+  @media (min-width: 992px) {
+      .category-sidebar-enhanced {
+          flex-basis: 280px; /* Slightly wider sidebar on desktop */
+      }
+      .product-grid-enhanced {
+       /* Adjust minmax if needed for even larger screens */
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 1.8rem; /* Increase gap */
+     }
+      .category-page-enhanced {
+          padding: 2rem;
+      }
+  }
+  
+  @media (min-width: 1200px) {
+      .product-grid-enhanced {
+       /* Allow more columns on very wide screens */
+        grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+     }
+  }
